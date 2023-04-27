@@ -1,0 +1,15 @@
+!src/
+!app/
+!public/
+!tests
+!logs/
+!composer.*
+!docker-compose.*
+!Dockerfile
+
+.dockerignore
+.docker/
+.git/
+phpcs.xl
+phpunit.xml
+vendor
