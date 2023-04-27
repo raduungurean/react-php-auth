@@ -1,0 +1,87 @@
+version: '3.8'
+
+networks:
+  appnet:
+
+services:
+  php:
+    build: ./backend
+    container_name: php
+    restart: always
+    volumes:
+      - ./backend/app:/var/www/html/app
+      - ./backend/src:/var/www/html/src
+      - ./backend/tests:/var/www/html/tests
+      - ./backend/public:/var/www/html/public
+      - ./backend/vendor:/var/www/html/vendor
+      - ./backend/volumes/var:/var/www/html/var
+      - ./backend/volumes/logs:/var/www/html/logs
+      - ./backend/volumes/database/migrations:/var/www/html/database/migrations
+      - ./backend/volumes/database/seeds:/var/www/html/database/seeds
+      - ./backend/volumes/apache-logs:/var/log/apache2
+    networks:
+      - appnet
+    ports:
+      - '80:80'
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_DATABASE: app_database
+      DB_USERNAME: app_user
+      DB_PASSWORD: app_password
+      JWT_SECRET: ......
+      API_URL: http://localhost/api
+      APP_URL: http://localhost:3000
+      MAIL_HOST: ......
+      MAIL_PORT: 587
+      MAIL_SMTP_SECURE: ssl
+      MAIL_FROM_ADDRESS: ......
+      MAIL_FROM_NAME: ......
+      MAILGUN_DOMAIN: ......
+      MAILGUN_SECRET: ......
+  db:
+    image: mysql:8.0
+    container_name: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: app_database
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: app_password
+    volumes:
+      - ./backend/volumes/db_data:/var/lib/mysql
+    networks:
+      - appnet
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - '8080:80'
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root_password
+    depends_on:
+      - db
+    networks:
+      - appnet
+  react:
+    build:
+      context: ./frontend
+      target: development
+    container_name: react
+    restart: always
+    stdin_open: true
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+    networks:
+      - appnet
+    ports:
+      - '3000:3000'
+    environment:
+      - REACT_APP_API_URL=http://localhost/api
+      - WATCHPACK_POLLING=true
+    depends_on:
+      - php
