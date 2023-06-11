@@ -105,7 +105,6 @@
       <path value="$PROJECT_DIR$/backend/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/backend/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/backend/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/backend/vendor/fakerphp/faker" />
       <path value="$PROJECT_DIR$/backend/vendor/laravel/serializable-closure" />
       <path value="$PROJECT_DIR$/backend/vendor/phpspec/prophecy" />
       <path value="$PROJECT_DIR$/backend/vendor/phpspec/prophecy-phpunit" />
@@ -119,7 +118,6 @@
       <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/backend/vendor/composer" />
       <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/backend/vendor/phpstan/extension-installer" />
       <path value="$PROJECT_DIR$/backend/vendor/phpstan/phpdoc-parser" />
       <path value="$PROJECT_DIR$/backend/vendor/ralouphie/getallheaders" />
@@ -135,7 +133,6 @@
       <path value="$PROJECT_DIR$/backend/vendor/sebastian/complexity" />
       <path value="$PROJECT_DIR$/backend/vendor/cakephp/database" />
       <path value="$PROJECT_DIR$/backend/vendor/respect/validation" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/diff" />
       <path value="$PROJECT_DIR$/backend/vendor/cakephp/datasource" />
       <path value="$PROJECT_DIR$/backend/vendor/sebastian/environment" />
       <path value="$PROJECT_DIR$/backend/vendor/cakephp/log" />
@@ -163,7 +160,6 @@
       <path value="$PROJECT_DIR$/backend/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/backend/vendor/symfony/filesystem" />
       <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/deprecations" />
       <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-intl-grapheme" />
       <path value="$PROJECT_DIR$/backend/vendor/doctrine/instantiator" />
       <path value="$PROJECT_DIR$/backend/vendor/robmorgan/phinx" />
@@ -192,7 +188,6 @@
       <path value="$PROJECT_DIR$/backend/vendor/php-http/message" />
       <path value="$PROJECT_DIR$/backend/vendor/php-http/httplug" />
       <path value="$PROJECT_DIR$/backend/vendor/php-http/multipart-stream-builder" />
-      <path value="$PROJECT_DIR$/backend/vendor/php-http/message-factory" />
       <path value="$PROJECT_DIR$/backend/vendor/php-http/promise" />
       <path value="$PROJECT_DIR$/backend/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/backend/vendor/symfony/options-resolver" />
@@ -204,6 +199,10 @@
       <path value="$PROJECT_DIR$/backend/vendor/phpoption/phpoption" />
       <path value="$PROJECT_DIR$/backend/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/backend/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/backend/vendor/fakerphp/faker" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />

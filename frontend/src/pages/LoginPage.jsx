@@ -5,19 +5,25 @@ import {Link, useHistory} from "react-router-dom";
 import {setRemember} from "../store/reducers/authSlice";
 import {ClipLoader} from "react-spinners";
 import toast from "react-hot-toast";
+import { FaEye, FaEyeSlash} from 'react-icons/fa';
 
 function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
     const [remember, setRememberState] = useState(false);
+
     const isAuthenticated = useSelector((state) => {
         return state.auth.isLoggedIn;
     });
     const isLoggingIn = useSelector((state) => {
         return state.auth.isLoggingIn;
     });
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -62,19 +68,29 @@ function LoginPage() {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
-                <div className="mb-6">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                        Password
-                    </label>
+
+                <div className="relative">
                     <input
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="password"
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
+                    <button
+                        type="button"
+                        className="absolute top-1/2 right-3 transform -translate-y-1/2 focus:outline-none"
+                        onClick={togglePasswordVisibility}
+                    >
+                        {showPassword ? (
+                            <FaEyeSlash className="h-5 w-5 text-gray-500" />
+                        ) : (
+                            <FaEye className="h-5 w-5 text-gray-500" />
+                        )}
+                    </button>
                 </div>
+
                 <div className="mb-4 flex items-center justify-between">
                     <label className="text-gray-700 font-bold">
                         <input

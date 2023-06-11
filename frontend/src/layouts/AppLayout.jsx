@@ -9,7 +9,6 @@ const AppLayout = ({ children }) => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const dispatch = useDispatch();
-
     const handleLogout = async () => {
         try {
             dispatch(logout())
